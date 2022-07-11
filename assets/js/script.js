@@ -1,21 +1,21 @@
 var searchInput = $("#searchInput").val();
 var searchButton = $("#searchBtn");
 
-
-
-
-
 // Function to get coordinates from searching city to use for onecall API upon clicking search button
 searchButton.on('click', function(event){
     event.preventDefault();
     var searchInput = $("#searchInput").val();
-    // saveHistory(searchInput);
+    
 
     var APIkey = "fae5cbeb697eb07543a4f8be8eb78202";
 
     var APIurl = "https://api.openweathermap.org/data/2.5/weather?q="+searchInput+"&appid="+APIkey;
     fetch(APIurl)
     .then(function(response){
+        
+        if(!(response.status === 404)){
+            saveHistory(searchInput);
+        };
         return response.json();
     })
     .then(function(data){
@@ -26,6 +26,7 @@ searchButton.on('click', function(event){
         var todayCity = $("#todayCity");
         todayCity.text(data.name +" "+ moment().format('DD/MM/YYYY'));
     });
+    
 });
 
 function todayWeather(data){
@@ -88,7 +89,54 @@ function todayUV(data){
     });
 };
 
+
 // Saves Search to local storage
-// function saveHistory(search){
-//     localStorage.setItem('searchHistory', JSON.stringify(search));    
-// };
+
+function saveHistory(search){
+    var searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+    
+    if ((searchHistory.indexOf(search)) === -1){
+        searchHistory.push(search);
+    };
+    localStorage.setItem('searchHistory', JSON.stringify(searchHistory)); 
+    
+    
+};
+
+
+(function loadHistory(){
+    console.log('test');
+    var searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+    var loadHistory = $(".loadHistory");
+    for (i=0; i < searchHistory.length; i++){
+        var loadCity = $('<button>');
+        loadCity.attr('id', searchHistory[searchHistory.length - i - 1])
+        loadCity.text(searchHistory[searchHistory.length - i - 1]);
+        loadCity.appendTo(loadHistory);
+        
+    loadCity.on('click', function(event){
+    event.preventDefault();
+   searchInput = loadCity.text();
+    console.log(searchInput);
+    
+
+    var APIkey = "fae5cbeb697eb07543a4f8be8eb78202";
+
+    var APIurl = "https://api.openweathermap.org/data/2.5/weather?q="+searchInput+"&appid="+APIkey;
+    fetch(APIurl)
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        // console.log(data);
+        todayWeather(data);
+        todayUV(data);
+        
+        var todayCity = $("#todayCity");
+        todayCity.text(data.name +" "+ moment().format('DD/MM/YYYY'));
+    });
+});
+
+    };
+})()
+

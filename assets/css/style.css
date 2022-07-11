@@ -29,11 +29,15 @@ body {
     display: block;
 }
 
-.history{
+button, input{
+    width: 100%;
+    margin: 5px
+}
+.loadHistory{
     
 }
 
-.history > button{
+.loadHistory > button{
     display: block;
     text-align: center;
 }
