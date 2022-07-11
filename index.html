@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+      
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Dashboard</title>
+  </head>
+
+  <body>
+    
+    <header class="heading"">
+      <h1>Weather Dashboard</h1>
+    </header>
+
+  
+      
+    <div class = "searchContainer">
+
+      <h2>Search For City </h2>
+      <input id='searchInput' type="text">
+      <button id = 'searchBtn'>Search</button>
+      <div class = "history">
+      </div>
+    </div>
+
+  <div class = "resultsContainer">
+
+    <div class = "dailyWeather ">
+      <h1 id = "todayCity"></h1>
+      
+      <h3 id = "todayTemp"></h3>
+      <h3 id = "todayWind"></h3>
+      <h3 id = "todayHumidity"></h3>
+      <h3 id = "todayUV"></h3>
+    </div>
+
+    <h3 class = 'forecastHeader'></h3>
+    
+    <div class="forecastContainer">
+
+      
+      
+      <div id = 'day1' class = 'forecast'>
+        <p class = 'date'></p>
+        <img src="" alt="">
+        <p class = 'temp'></p>
+        <p class = 'wind'></p>
+        <p class = 'humidity'></p>
+      </div>
+
+      <div id = 'day2' class = 'forecast'>
+        <p class = 'date'></p>
+        <img src="" alt="">
+        <p class = 'temp'></p>
+        <p class = 'wind'></p>
+        <p class = 'humidity'></p>
+      </div>
+
+      <div id = 'day3' class = 'forecast'>
+        <p class = 'date'></p>
+        <img src="" alt="">
+        <p class = 'temp'></p>
+        <p class = 'wind'></p>
+        <p class = 'humidity'></p>
+      </div>
+
+      <div id = 'day4' class = 'forecast '>
+        <p class = 'date'></p>
+        <img src="" alt="">
+        <p class = 'temp'></p>
+        <p class = 'wind'></p>
+        <p class = 'humidity'></p>
+      </div> 
+
+      <div id = 'day5' class = 'forecast'>
+        <p class = 'date'></p>
+        <img src="" alt="">
+        <p class = 'temp'></p>
+        <p class = 'wind'></p>
+        <p class = 'humidity'></p>
+      </div>
+
+    </div>
+
+  </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

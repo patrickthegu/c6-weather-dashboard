@@ -1,0 +1,64 @@
+body {
+
+    /* display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto; */
+}
+
+.heading{
+    display: block;
+    text-align: center;
+    background-color: blue;
+    color: white;
+    /* grid-area: 1/1/2/12; */
+}
+
+.searchContainer{
+    float: left;
+    width: 25%;
+    height: 100%;
+    padding: 10px;
+    /* grid-area: 2/1/12/3; */
+    
+}
+.searchContainer > input{
+    display: block;
+}
+
+.searchContainer > searchButton{
+    display: block;
+}
+
+.history{
+    
+}
+
+.history > button{
+    display: block;
+    text-align: center;
+}
+
+.resultsContainer{
+    float: right;
+    width: 75%;
+    height: 100%;
+    padding: 10px;
+    /* grid-area: 2/3/12/12; */
+}
+
+.dailyWeather{
+    display:block;
+    height: 40%;
+}
+
+.forecastContainer{
+    height: 40%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+
+.forecast{
+    display: inline-block;
+}
