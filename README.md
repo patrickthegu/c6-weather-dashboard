@@ -45,4 +45,4 @@ User enters search input of city that they want weather info for.
 
 Weather information is then retrieved and displayed on the page.
 
-(Search history in local storage is incomplete)
+Search History is saved and shown on page when loaded, invalid searches are discarded
